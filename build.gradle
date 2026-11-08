@@ -1,0 +1,48 @@
+plugins {
+	id 'java'
+}
+
+group = 'com.lumitier'
+version = project.plugin_version
+
+base {
+	archivesName = 'LumiLibControlPlugin'
+}
+
+repositories {
+	mavenCentral()
+	maven {
+		name = 'PaperMC'
+		url = uri('https://repo.papermc.io/repository/maven-public/')
+	}
+}
+
+dependencies {
+	// compileOnly: Der Server bringt die API selbst mit. Mitgepackt waere
+	// sie nur Ballast - und im schlimmsten Fall eine zweite, falsche Fassung.
+	compileOnly "io.papermc.paper:paper-api:${project.paper_version}"
+}
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+	options.release = 21
+}
+
+processResources {
+	inputs.property 'version', project.version
+	filesMatching('plugin.yml') {
+		expand 'version': project.version
+	}
+}
+
+jar {
+	from('LICENSE') {
+		rename { "${it}_LumiLibControlPlugin" }
+	}
+}

@@ -1,0 +1,17 @@
+name: LumiLibControlPlugin
+version: '${version}'
+main: com.lumitier.lumilibcontrolplugin.LumiLibControlPlugin
+api-version: '1.21'
+description: Lets server admins switch Lumitier's client mods on or off for players who have LumiLib installed.
+author: Lumitier
+website: https://github.com/Lumitier/lumilibcontrolplugin
+
+commands:
+  lumimod:
+    description: Switch Lumitier's client mods on or off on this server.
+    usage: /lumimod <list|enable|disable|reload> [mod]
+
+permissions:
+  lumimod.admin:
+    description: Change which of Lumitier's mods are allowed on this server.
+    default: op

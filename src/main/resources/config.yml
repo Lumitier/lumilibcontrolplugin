@@ -1,0 +1,17 @@
+# LumiLibControlPlugin
+#
+# Which of Lumitier's client mods are allowed on this server.
+#   true  = allowed
+#   false = switched off for every player who has LumiLib installed
+#
+# Players without LumiLib are not affected - the server cannot see or
+# change their mods. This is a request the mods follow, not anti-cheat.
+#
+# Change this file, then run /lumimod reload (or restart the server).
+# /lumimod enable|disable <mod> changes it for you and applies at once.
+
+mods:
+  shadowtweaks: true
+  perpetualsnow: true
+  itemdroptweaks: true
+  xporbtweaks: true
